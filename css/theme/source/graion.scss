@@ -30,6 +30,16 @@ $selectionBackgroundColor: #3AB54A;
 $mainFontSize: 30px;
 
 
+
+
 // Theme template ------------------------------
 @import "../template/theme";
 // ---------------------------------------------
+
+/*********************************************
+ * OVERWRITE
+ *********************************************/
+.reveal section img {
+  background: none;
+  border: none;
+}
