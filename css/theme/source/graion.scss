@@ -43,3 +43,18 @@ $mainFontSize: 30px;
   background: none;
   border: none;
 }
+
+.reveal table {
+  margin: auto;
+  width: 50%;
+}
+
+.reveal table th {
+  font-weight: bold;
+  text-align: center;
+}
+.reveal table td {
+  text-align: center;
+  vertical-align: top;
+}
+
