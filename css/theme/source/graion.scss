@@ -1,5 +1,5 @@
 /**
- * Black theme for reveal.js.
+ * Graion theme for reveal.js.
  *
  * Copyright (C) 2011-2012 Hakim El Hattab, http://hakim.se
  */
@@ -17,7 +17,7 @@
 
 
 // Override theme settings (see ../template/settings.scss)
-$backgroundColor: #111;
+$backgroundColor: #444;
 
 $mainFont: 'Open Sans', sans-serif;
 $linkColor: #3AB54A;
@@ -44,6 +44,7 @@ $mainFontSize: 30px;
 		img {
 			background: none;
 			border: none;
+			box-shadow: none;
 		}
 	}
 
@@ -66,5 +67,9 @@ $mainFontSize: 30px;
 		&.shadow {
 			text-shadow: 0 0 50px #000;
 		}
+	}
+
+	.dark {
+		color: $backgroundColor;
 	}
 }

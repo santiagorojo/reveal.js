@@ -1,7 +1,7 @@
 @import url(https://fonts.googleapis.com/css?family=Montserrat:700);
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700,400italic,700italic);
 /**
- * Black theme for reveal.js.
+ * Graion theme for reveal.js.
  *
  * Copyright (C) 2011-2012 Hakim El Hattab, http://hakim.se
  */
@@ -9,8 +9,8 @@
  * GLOBAL STYLES
  *********************************************/
 body {
-  background: #111111;
-  background-color: #111111; }
+  background: #444444;
+  background-color: #444444; }
 
 .reveal {
   font-family: "Open Sans", sans-serif;
@@ -134,7 +134,8 @@ body {
  *********************************************/
 .reveal section img {
   background: none;
-  border: none; }
+  border: none;
+  box-shadow: none; }
 .reveal table {
   margin: auto;
   width: 50%; }
@@ -146,3 +147,5 @@ body {
     vertical-align: top; }
 .reveal h1.shadow, .reveal h2.shadow, .reveal h3.shadow {
   text-shadow: 0 0 50px #000; }
+.reveal .dark {
+  color: #444444; }
