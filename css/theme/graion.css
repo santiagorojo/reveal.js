@@ -9,8 +9,8 @@
  * GLOBAL STYLES
  *********************************************/
 body {
-  background: #444444;
-  background-color: #444444; }
+  background: #282828;
+  background-color: #282828; }
 
 .reveal {
   font-family: "Open Sans", sans-serif;
@@ -148,4 +148,10 @@ body {
 .reveal h1.shadow, .reveal h2.shadow, .reveal h3.shadow {
   text-shadow: 0 0 50px #000; }
 .reveal .dark {
-  color: #444444; }
+  color: #282828; }
+.reveal pre.medium {
+  width: initial;
+  font-size: .65em; }
+.reveal pre.big {
+  width: initial;
+  font-size: inherit; }

@@ -27,8 +27,9 @@
 					<h1>Keep GIT Simple</h1>
 					<h3>... journey through space-time</h3>
 					<p>
-						<small>by <a>Santiago Rojo</a> @ <a href="http://www.graion.com">Graion</a></small>
+						<small>by <a>Santiago Rojo</a></small>
 					</p>
+					<img src="/images/graion_logo.png" alt="">
 				</section>
 
 				<section>
@@ -207,9 +208,290 @@
 					<p class="dark">21 "essentials" commands</p>
 				</section>
 
+				<section>
+					<h2>Configurations</h2
+>					<pre class="big"><code data-trim contenteditable>
+$ git config --global user.name "Santiago Rojo"
+</code></pre>
+					<pre class="big"><code data-trim contenteditable>
+$ git config --global user.email santiago.rojo@graion.com
+</code></pre>
+					<pre class="big"><code data-trim contenteditable>
+$ git config --global color.ui true
+</code></pre>
+					<pre class="big"><code data-trim contenteditable>
+$ git config --global merge.tool meld
+</code></pre>
+				</section>
+
+				<section>
+					<h2>Initialize a repository</h2>
+					<pre class="big"><code data-trim contenteditable>
+$ git init
+Initialized empty Git repository in /home/tiagox/KeepGITSimple/.git/
+</code></pre>
+				</section>
+
+				<section>
+					<section>
+						<h2>Using an existing repository</h2>
+						<pre class="big"><code data-trim contenteditable>
+$ git clone http://dev.graion.com/git/keepgitsimple
+Cloning into 'keepgitsimple'...
+remote: Counting objects: 4665, done.
+remote: Compressing objects: 100% (2281/2281), done.
+remote: Total 4665 (delta 2715), reused 4136 (delta 2247)
+Receiving objects: 100% (4665/4665), 16.39 MiB | 227.00 KiB/s, done.
+Resolving deltas: 100% (2715/2715), done.
+Checking connectivity... done
+</code></pre>
+
+						<aside class="notes">
+							<ul>
+								<li>Talk about protocols.</li>
+							</ul>
+						</aside>
+					</section>
+
+					<section>
+						<h2>Protocols</h2>
+						<ul>
+							<li>ssh://</li>
+							<li>http[s]://</li>
+							<li>git://</li>
+						</ul>
+					</section>
+				</section>
+
+				<section>
+					<h2>Adding files and changes</h2>
+					<p>all</p>
+					<pre class="big"><code data-trim contenteditable>
+$ git add .
+</code></pre>
+					<p>interactive</p>
+					<pre class="big"><code data-trim contenteditable>
+$ git add -p
+</code></pre>
+					<p>files</p>
+					<pre class="big"><code data-trim contenteditable>
+$ git add README.md
+</code></pre>
+				</section>
+
+				<section>
+					<h2>Commiting changes</h2>
+					<pre class="big"><code data-trim contenteditable>
+$ git commit
+</code></pre>
+					<pre class="big"><code data-trim contenteditable>
+$ git commit -m "Commit message."
+</code></pre>
+					<p>add + commit</p>
+					<pre class="big"><code data-trim contenteditable>
+$ git commit -am "Commit message."
+</code></pre>
+				</section>
+
+				<section>
+					<h2>Status</h2>
+					<pre class="medium"><code data-trim contenteditable>
+$ git status
+# On branch master
+# Changes to be committed:
+#   (use "git reset HEAD &lt;file&gt;..." to unstage)
+#
+#       modified:   index.html
+#
+# Changes not staged for commit:
+#   (use "git add &lt;file&gt;..." to update what will be committed)
+#   (use "git checkout -- &lt;file&gt;..." to discard changes in working directory)
+#
+#       modified:   index.html
+#
+# Untracked files:
+#   (use "git add &lt;file&gt;..." to include in what will be committed)
+#
+#       README.md
+</code></pre>
+				</section>
+
+				<section>
+					<h2>Log</h2>
+					<pre class="medium"><code data-trim contenteditable>
+$ git log
+commit 1be40da451afae95451b47bc0d81309f31a65e5b
+Author: Santiago Rojo &lt;santiago.rojo@graion.com&gt;
+Date:   Thu Sep 5 16:49:04 2013 -0300
+
+    Add HTML structure to index.html.
+
+commit 5123dad9ce82d6a91b2d027015bfe9d907dcda7b
+Author: Santiago Rojo &lt;santiago.rojo@graion.com&gt;
+Date:   Thu Sep 5 11:00:53 2013 -0300
+
+    Add index file.
+</code></pre>
+					<p>what's in <code>master</code> but not in <code>development</code></p>
+					<pre class="medium"><code data-trim contenteditable>
+$ git log development..master
+</code></pre>
+				</section>
+
+				<section>
+					<h2>Alias</h2>
+					<pre class="medium"><code data-trim contenteditable>
+$ git config --global alias.gol "log --graph --pretty=format:'%Cred%h%Creset - %C(blue)%an%Creset
+%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative"
+</code></pre>
+					<pre class="big"><code data-trim contenteditable>
+$ git gol
+</code></pre>
+					<img src="/images/gol.png" alt="">
+				</section>
+
+				<section>
+					<h2>Create branches</h2>
+					<pre class="big"><code data-trim contenteditable>
+$ git branch playground
+</code></pre>
+					<p>create + switch</p>
+					<pre class="big"><code data-trim contenteditable>
+$ git checkout -b development
+Switched to a new branch 'development'
+</code></pre>
+				</section>
+
+				<section>
+					<h2>List branches</h2>
+					<pre class="big"><code data-trim contenteditable>
+$ git branch
+* development
+  master
+  playground
+</code></pre>
+				</section>
+
+				<section>
+					<h2>Switch branches</h2>
+					<p>to another branch</p>
+					<pre class="big"><code data-trim contenteditable>
+$ git checkout playground
+Switched to branch 'playground'
+</code></pre>
+					<p>anywhere</p>
+					<pre class="medium"><code data-trim contenteditable>
+$ git checkout 5123dad9ce82d6a91b2d027015bfe9d907dcda7b
+Note: checking out '5123dad9ce82d6a91b2d027015bfe9d907dcda7b'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b new_branch_name
+
+HEAD is now at 5123dad... Add index file.
+</code></pre>
+				</section>
+
+				<section>
+					<h2>Delete branches</h2>
+					<pre class="big"><code data-trim contenteditable>
+$ git branch -d playground
+</code></pre>
+					<pre class="big"><code data-trim contenteditable>
+$ git branch -D playground
+</code></pre>
+				</section>
+
+				<section>
+					<h2>Stashing</h2>
+					<pre class="big"><code data-trim contenteditable>
+$ git stash
+</code></pre>
+					<pre class="big"><code data-trim contenteditable>
+$ git stash save "Comments"
+</code></pre>
+					<pre class="big"><code data-trim contenteditable>
+$ git stash list
+</code></pre>
+					<pre class="big"><code data-trim contenteditable>
+$ git stash apply
+</code></pre>
+					<pre class="big"><code data-trim contenteditable>
+$ git stash drop
+</code></pre>
+					<p>apply + drop</p>
+					<pre class="big"><code data-trim contenteditable>
+$ git stash pop
+</code></pre>
+				</section>
+
+				<section data-background="/images/merge_bg.jpg">
+					<h1 class="shadow">Merge</h1>
+				</section>
+
+				<section>
+					<img src="/images/merge_ff.png" alt="">
+					<pre class="big"><code data-trim contenteditable>
+$ git checkout master
+Switched to a new branch 'master'
+$ git merge feature
+</code></pre>
+				</section>
+
+				<section data-transition="none">
+					<img src="/images/merge_ff_result.png" alt="">
+					<pre class="big"><code data-trim contenteditable>
+$ git merge feature
+Updating 306eb60..56a2247
+Fast-forward
+ index.html | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+</code></pre>
+				</section>
+
+				<section>
+					<img src="/images/merge_nff.png" alt="">
+					<pre class="big"><code data-trim contenteditable>
+$ git checkout master
+Switched to a new branch 'master'
+$ git merge feature
+</code></pre>
+				</section>
+
+				<section data-transition="none">
+					<img src="/images/merge_nff_result.png" alt="">
+					<pre class="big"><code data-trim contenteditable>
+$ git merge feature
+Auto-merging index.html
+Merge made by the 'recursive' strategy.
+ index.html | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+</code></pre>
+				</section>
+
+				<section>
+					<p>Fast-forward</p>
+					<img src="/images/merge_ff_result.png" alt="" height="250">
+					<p>Recursive strategy</p>
+					<img src="/images/merge_nff_result.png" alt="" height="250">
+				</section>
 
 
+				<section data-background="/images/rebase_bg.jpg">
+					<h1>Rebase</h1>
+				</section>
 
+				<section>
+					<h2></h2>
+					<pre class="big"><code data-trim contenteditable>
+
+</code></pre>
+				</section>
 
 
 
