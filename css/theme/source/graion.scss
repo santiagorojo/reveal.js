@@ -39,22 +39,32 @@ $mainFontSize: 30px;
 /*********************************************
  * OVERWRITE
  *********************************************/
-.reveal section img {
-  background: none;
-  border: none;
-}
+.reveal {
+	section {
+		img {
+			background: none;
+			border: none;
+		}
+	}
 
-.reveal table {
-  margin: auto;
-  width: 50%;
-}
+	table {
+		margin: auto;
+		width: 50%;
 
-.reveal table th {
-  font-weight: bold;
-  text-align: center;
-}
-.reveal table td {
-  text-align: center;
-  vertical-align: top;
-}
+		th {
+			font-weight: bold;
+			text-align: center;
+		}
 
+		td {
+			text-align: center;
+			vertical-align: top;
+		}
+	}
+
+	h1, h2, h3 {
+		&.shadow {
+			text-shadow: 0 0 50px #000;
+		}
+	}
+}
