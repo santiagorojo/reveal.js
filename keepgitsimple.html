@@ -600,6 +600,76 @@ Fast-forward
 					<img src="/images/rebase_right_merge.png" alt="" height="250">
 				</section>
 
+				<section data-background="#3AB54A">
+					<h1>Remotes</h1>
+				</section>
+
+				<section>
+					<h2>Add remotes</h2>
+					<pre class="big"><code data-trim contenteditable>
+$ git remote add graion http://dev.graion.com/git/keepgitsimple
+</code></pre>
+				</section>
+
+				<section>
+					<h2>List remotes</h2>
+					<pre class="big"><code data-trim contenteditable>
+$ git remote
+origin
+graion
+</code></pre>
+					<p>show details</p>
+					<pre class="medium"><code data-trim contenteditable>
+$ git remote graion
+git remote show origin
+* remote graion
+  Fetch URL: http://dev.graion.com/git/keepgitsimple
+  Push  URL: http://dev.graion.com/git/keepgitsimple
+  HEAD branch: master
+  Remote branches:
+    development   tracked
+    master        tracked
+  Local branches configured for 'git pull':
+    development   rebases onto remote development
+    master        merges with remote master
+  Local refs configured for 'git push':
+    development   pushes to development (up to date)
+    master        pushes to master      (up to date)
+</code></pre>
+				</section>
+
+				<section>
+					<h2>Fetching data</h2>
+					<pre class="big"><code data-trim contenteditable>
+$ git fetch origin
+</code></pre>
+					<p>fetch + merge <code>:(</code></p>
+					<pre class="big"><code data-trim contenteditable>
+$ git pull origin
+</code></pre>
+					<p>fetch + rebase <code>:)</code></p>
+					<pre class="big"><code data-trim contenteditable>
+$ git pull origin --rebase
+</code></pre>
+				</section>
+
+				<section>
+					<h2>Publishing changes</h2>
+					<p>only the first time</p>
+					<pre class="big"><code data-trim contenteditable>
+$ git push origin local_branch:remote_branch --set-upstream
+</code></pre>
+					<p>then just use</p>
+					<pre class="big"><code data-trim contenteditable>
+$ git push
+</code></pre>
+					<p>don't proud of use</p>
+					<pre class="big"><code data-trim contenteditable>
+$ git push origin local_branch:remote_branch --force
+</code></pre>
+				</section>
+
+				<section>
 					<h2></h2>
 					<pre class="big"><code data-trim contenteditable>
 
