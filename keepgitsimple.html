@@ -309,6 +309,13 @@ $ git commit -am "Commit message."
 				</section>
 
 				<section>
+					<h2>Cherry picking</h2>
+					<pre class="big"><code data-trim contenteditable>
+$ git cherry-pick 5123dad9ce82d6a91b2d027015bfe9d907dcda7b
+</code></pre>
+				</section>
+
+				<section>
 					<h2>Ignoring things</h2>
 					<ul>
 						<li><code>.gitignore</code></li>
@@ -518,12 +525,21 @@ Merge made by the 'recursive' strategy.
 				</section>
 
 				<section>
+					<h2>Solving conflicts</h2>
+					<pre class="big"><code data-trim contenteditable>
+$ git mergetool
+</code></pre>
+					<pre class="big"><code data-trim contenteditable>
+$ git commit
+</code></pre>
+				</section>
+
+				<section>
 					<p>Fast-forward</p>
 					<img src="/images/merge_ff_result.png" alt="" height="250">
 					<p>Recursive strategy</p>
 					<img src="/images/merge_nff_result.png" alt="" height="250">
 				</section>
-
 
 				<section data-background="/images/cat_stack.jpg">
 					<h1 class="shadow">Rebase</h1>
@@ -607,6 +623,16 @@ Fast-forward
  1 file changed, 2 insertions(+), 1 deletion(-)
 </code></pre>
 					<img src="/images/rebase_right_merge.png" alt="">
+				</section>
+
+				<section>
+					<h2>Solving conflicts</h2>
+					<pre class="big"><code data-trim contenteditable>
+$ git mergetool
+</code></pre>
+					<pre class="big"><code data-trim contenteditable>
+$ git rebase --continue
+</code></pre>
 				</section>
 
 				<section>
