@@ -509,11 +509,97 @@ Merge made by the 'recursive' strategy.
 				</section>
 
 
-				<section data-background="/images/rebase_bg.jpg">
-					<h1>Rebase</h1>
+				<section data-background="/images/cat_stack.jpg">
+					<h1 class="shadow">Rebase</h1>
 				</section>
 
 				<section>
+					<img src="/images/rebase_ff.png" alt="">
+					<pre class="big"><code data-trim contenteditable>
+$ git checkout master
+Switched to a new branch 'master'
+$ git rebase feature
+</code></pre>
+				</section>
+
+				<section data-transition="none">
+					<pre class="big"><code data-trim contenteditable>
+$ git rebase feature
+First, rewinding head to replay your work on top of it...
+Fast-forwarded master to feature.
+</code></pre>
+					<img src="/images/rebase_ff_result.png" alt="">
+				</section>
+
+				<section>
+					<img src="/images/rebase_wrong.png" alt="">
+					<pre class="big"><code data-trim contenteditable>
+$ git checkout master
+Switched to branch 'master'
+$ git rebase feature
+</code></pre>
+				</section>
+
+				<section data-transition="none">
+					<pre class="big"><code data-trim contenteditable>
+$ git rebase feature
+First, rewinding head to replay your work on top of it...
+Applying: c3
+</code></pre>
+					<img src="/images/rebase_wrong_result.png" alt="">
+				</section>
+
+				<section data-background="/images/wrong.jpg" data-transition="none">
+				</section>
+
+				<section data-background="/images/wrong.jpg" data-transition="zoom">
+					<h1 class="shadow">DON'T</h1>
+				</section>
+
+				<section data-transition="zoom">
+					<h2>let's try again</h2>
+				</section>
+
+				<section>
+					<img src="/images/rebase_right.png" alt="">
+					<pre class="big"><code data-trim contenteditable>
+$ git checkout feature
+Switched to branch 'feature'
+$ git rebase master
+</code></pre>
+				</section>
+
+				<section data-transition="none">
+					<pre class="big"><code data-trim contenteditable>
+$ git rebase master
+First, rewinding head to replay your work on top of it...
+Applying: c4
+Applying: c5
+Applying: c6
+</code></pre>
+					<img src="/images/rebase_right_rebase.png" alt="">
+				</section>
+
+				<section data-transition="none">
+					<pre class="medium"><code data-trim contenteditable>
+$ git checkout master
+Switched to branch 'master'
+$ git merge feature
+Updating 306eb60..56a2247
+Fast-forward
+ index.html | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+</code></pre>
+					<img src="/images/rebase_right_merge.png" alt="">
+				</section>
+
+				<section>
+					<p>Wrong rebase</p>
+					<img src="/images/rebase_wrong_result.png" alt="" height="250">
+					<p>Rebase-Merge</p>
+					<img src="/images/rebase_right_merge.png" alt="" height="250">
+				</section>
+
 					<h2></h2>
 					<pre class="big"><code data-trim contenteditable>
 
