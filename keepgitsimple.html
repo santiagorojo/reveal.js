@@ -288,6 +288,10 @@ $ git add .
 					<pre class="big"><code data-trim contenteditable>
 $ git add README.md
 </code></pre>
+					<p>patterns</p>
+					<pre class="big"><code data-trim contenteditable>
+$ git add src/*.java
+</code></pre>
 					<p>interactive</p>
 					<pre class="big"><code data-trim contenteditable>
 $ git add -p
@@ -354,8 +358,9 @@ $ git status
 				</section>
 
 				<section>
-					<h2>Log</h2>
-					<pre class="medium"><code data-trim contenteditable>
+					<section>
+						<h2>Log</h2>
+						<pre class="medium"><code data-trim contenteditable>
 $ git log
 commit 1be40da451afae95451b47bc0d81309f31a65e5b
 Author: Santiago Rojo &lt;santiago.rojo@graion.com&gt;
@@ -369,10 +374,21 @@ Date:   Thu Sep 5 11:00:53 2013 -0300
 
     Add index file.
 </code></pre>
-					<p>what's in <code>master</code> but not in <code>development</code></p>
-					<pre class="big"><code data-trim contenteditable>
+						<p>what's in <code>master</code> but not in <code>development</code></p>
+						<pre class="big"><code data-trim contenteditable>
 $ git log development..master
 </code></pre>
+					</section>
+
+					<section>
+						<pre class="big"><code data-trim contenteditable>
+commit 1be40da451afae95451b47bc0d81309f31a65e5b
+Author: Santiago Rojo &lt;santiago.rojo@graion.com&gt;
+Date:   Thu Sep 5 16:49:04 2013 -0300
+
+    Add HTML structure to index.html.
+</code></pre>
+					</section>
 				</section>
 
 				<section>
@@ -416,7 +432,7 @@ $ git branch
 $ git checkout playground
 Switched to branch 'playground'
 </code></pre>
-					<p>anywhere</p>
+					<p>... or go anywhere</p>
 					<pre class="medium"><code data-trim contenteditable>
 $ git checkout 5123dad9ce82d6a91b2d027015bfe9d907dcda7b
 Note: checking out '5123dad9ce82d6a91b2d027015bfe9d907dcda7b'.
@@ -685,7 +701,7 @@ git remote show origin
 					<pre class="big"><code data-trim contenteditable>
 $ git fetch origin
 </code></pre>
-					<p>fetch + merge <code>:(</code></p>
+					<p>fetch + merge <code>:S</code></p>
 					<pre class="big"><code data-trim contenteditable>
 $ git pull origin
 </code></pre>
@@ -705,7 +721,7 @@ $ git push origin local_branch:remote_branch --set-upstream
 					<pre class="big"><code data-trim contenteditable>
 $ git push
 </code></pre>
-					<p>don't proud of use</p>
+					<p>don't be proud of use</p>
 					<pre class="big"><code data-trim contenteditable>
 $ git push origin local_branch:remote_branch --force
 </code></pre>
@@ -728,7 +744,9 @@ $ git push origin local_branch:remote_branch --force
 					<img src="/images/liveintent.png" alt="">
 				</section>
 
-				<section data-background="#ffffff">
+				<section>
+					<img src="/images/liveintent.png" alt="" height="50">
+					<br>
 					<img src="/images/branching_model_li.png" alt="">
 				</section>
 
