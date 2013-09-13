@@ -1,0 +1,847 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Keep GIT Simple... journey through space-time</title>
+		<meta name="author" content="Santiago Rojo">
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<link rel="stylesheet" href="css/reveal.min.css">
+		<link rel="stylesheet" href="css/theme/graion.css" id="theme">
+		<!-- For syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+		<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+		<script>
+			document.write('<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+		</script>
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+	<body>
+		<div class="reveal">
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section>
+					<h1>Keep GIT Simple</h1>
+					<h3>... journey through space-time</h3>
+					<p>
+						<small>by <a>Santiago Rojo</a></small>
+					</p>
+					<img src="/images/graion_logo.png" alt="">
+				</section>
+
+				<section>
+					<h2>Agenda</h2>
+					<ul>
+						<li>About VCS</li>
+						<li>About Git</li>
+						<li>Anatomy of the repository</li>
+						<li>Anatomy of a commit</li>
+						<li>Anatomy of a branch</li>
+						<li>Git commands
+							<ul>
+								<li><code>merge</code> vs. <code>rebase</code></li>
+							</ul>
+						</li>
+						<li>Remotes</li>
+						<li>Branching model (Git vs. SVN)
+							<ul>
+								<li>Recommended Git flow</li>
+							</ul>
+						</li>
+						<li>Use case: LXF</li>
+					</ul>
+
+					<aside class="notes">
+						Press 's' you idiot.
+					</aside>
+				</section>
+
+				<section data-transition="none">
+					<h1>What is a VCS?</h1>
+				</section>
+
+				<section data-transition="none">
+					<h2>... anyone will tell:</h2>
+					<blockquote>
+						&ldquo;Version control is a system that records changes to a file or
+						set of files over time so that you can recall specific versions
+						later.&rdquo;
+					</blockquote>
+				</section>
+
+				<section data-transition="zoom">
+					<h2>But, only a few know the truth...</h2>
+				</section>
+
+				<section data-background="/images/delorean.jpg">
+				</section>
+
+				<section>
+					<h2>What kind of VCS exists?</h2>
+				</section>
+
+				<section>
+					<h3>Centralized vs. Decentralized vs. Distributed</h3>
+					<img height="500" src="/images/architectures.png" alt="Network diagrams" class="image">
+				</section>
+
+				<section>
+					<h2>VCS tools</h2>
+					<table>
+						<tr>
+							<th>Centralized</th>
+							<th>Distributed</th>
+						</tr>
+						<tr>
+							<td>
+								<ul>
+									<li>CVS</li>
+									<li>SVN</li>
+								</ul>
+							</td>
+							<td>
+								<ul>
+									<li>Mercurial</li>
+									<li>Bazaar</li>
+									<li><a>Git</a></li>
+								</ul>
+							</td>
+						</tr>
+					</table>
+
+					<aside class="notes">
+						http://biz30.timedoctor.com/git-mecurial-and-cvs-comparison-of-svn-software/
+					</aside>
+				</section>
+
+				<section>
+					<img src="/images/Git-Logo-White.png" alt="Git logo">
+				</section>
+
+				<section>
+					<h2>Why Git?</h2>
+					<ul>
+						<li class="fragment">Fully <a>distributed</a></li>
+						<li class="fragment">Almost everything is <a>local</a></li>
+						<li class="fragment">Works <a>without network</a></li>
+						<li class="fragment">Every workstation is a <a>backup</a></li>
+						<li class="fragment"><a>Branches</a></li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Git off-line</h2>
+					<ul>
+						<li class="fragment">Faster</li>
+						<li class="fragment">Diff between everything</li>
+						<li class="fragment">See the full log</li>
+						<li class="fragment">Commit changes</li>
+						<li class="fragment">Merge/Rebase branches</li>
+						<li class="fragment">Get a previous version of a file</li>
+						<li class="fragment">Switch branches</li>
+						<li class="fragment">and more</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>How Git works?</h2>
+					<ul>
+						<li class="fragment">Snapshots, not Differences</li>
+						<li class="fragment">Integrity (sha1)</li>
+						<li class="fragment">Only adds data</li>
+					</ul>
+				</section>
+
+				<section data-background="/images/whatsinside.jpg">
+					<h1 class="shadow">What's inside?</h1>
+				</section>
+
+				<section>
+					<h2>Anatomy of the repository</h2>
+					<img src="/images/repository.png" alt="">
+				</section>
+
+				<section>
+					<h2>Anatomy of a commit</h2>
+					<img src="/images/commit.png" alt="">
+				</section>
+
+				<section data-background="/images/branches_bg.jpg">
+					<h1 class="shadow">Branches</h1>
+				</section>
+
+				<section>
+					<img src="/images/branch.png" alt="">
+					<h2></h2>
+					<h2>... are just pointers</h2>
+				</section>
+
+				<section data-background="#3ab54a">
+					<h1>Git commands</h1>
+				</section>
+
+				<section data-background="#ffffff" data-transition="none">
+					<h2 class="dark">Wait! What about <code>head</code>?</h2>
+					<img src="/images/clippo.jpg" alt="">
+				</section>
+
+				<section data-background="#ffffff" data-transition="none">
+					<h2 class="dark">Ok, danke!</h2>
+					<img src="/images/clippo.jpg" alt="">
+				</section>
+
+				<section data-background="#3ab54a">
+					<h1>Git commands</h1>
+				</section>
+
+				<section data-background="#ffffff" data-transition="none">
+					<img src="/images/commands.png" alt="">
+					<p class="dark">152 commands</p>
+				</section>
+
+				<section data-background="#ffffff" data-transition="none">
+					<img src="/images/plumbing.png" alt="">
+					<p class="dark">111 "plumbing" commands</p>
+				</section>
+
+				<section data-background="#ffffff" data-transition="none">
+					<img src="/images/commands.png" alt="">
+					<p class="dark">152 commands</p>
+				</section>
+
+				<section data-background="#ffffff" data-transition="none">
+					<img src="/images/porcelain.png" alt="">
+					<p class="dark">41 "porcelain" commands</p>
+				</section>
+
+				<section data-background="#ffffff" data-transition="none">
+					<img src="/images/essentials.png" alt="">
+					<p class="dark">21 "essentials" commands</p>
+				</section>
+
+				<section>
+					<h2>Configurations</h2
+>					<pre class="big"><code data-trim contenteditable>
+$ git config --global user.name "Santiago Rojo"
+</code></pre>
+					<pre class="big"><code data-trim contenteditable>
+$ git config --global user.email santiago.rojo@graion.com
+</code></pre>
+					<pre class="big"><code data-trim contenteditable>
+$ git config --global color.ui true
+</code></pre>
+					<pre class="big"><code data-trim contenteditable>
+$ git config --global merge.tool meld
+</code></pre>
+				</section>
+
+				<section>
+					<h2>Initialize a repository</h2>
+					<pre class="big"><code data-trim contenteditable>
+$ git init
+Initialized empty Git repository in /home/tiagox/KeepGITSimple/.git/
+</code></pre>
+				</section>
+
+				<section>
+					<section>
+						<h2>Using an existing repository</h2>
+						<pre class="big"><code data-trim contenteditable>
+$ git clone http://dev.graion.com/git/keepgitsimple
+Cloning into 'keepgitsimple'...
+remote: Counting objects: 4665, done.
+remote: Compressing objects: 100% (2281/2281), done.
+remote: Total 4665 (delta 2715), reused 4136 (delta 2247)
+Receiving objects: 100% (4665/4665), 16.39 MiB | 227.00 KiB/s, done.
+Resolving deltas: 100% (2715/2715), done.
+Checking connectivity... done
+</code></pre>
+
+						<aside class="notes">
+							<ul>
+								<li>Talk about protocols.</li>
+								<li style="color: red; font-weight: bold;">DOWN!</li>
+							</ul>
+						</aside>
+					</section>
+
+					<section>
+						<h2>Protocols</h2>
+						<ul>
+							<li>ssh://</li>
+							<li>http[s]://</li>
+							<li>git://</li>
+						</ul>
+					</section>
+				</section>
+
+				<section>
+					<h2>Adding files and changes</h2>
+					<p>all</p>
+					<pre class="big"><code data-trim contenteditable>
+$ git add .
+</code></pre>
+					<p>files</p>
+					<pre class="big"><code data-trim contenteditable>
+$ git add README.md
+</code></pre>
+					<p>patterns</p>
+					<pre class="big"><code data-trim contenteditable>
+$ git add src/*.java
+</code></pre>
+					<p>interactive</p>
+					<pre class="big"><code data-trim contenteditable>
+$ git add -p
+</code></pre>
+				</section>
+
+				<section>
+					<h2>Commiting changes</h2>
+					<pre class="big"><code data-trim contenteditable>
+$ git commit
+</code></pre>
+					<pre class="big"><code data-trim contenteditable>
+$ git commit -m "Commit message."
+</code></pre>
+					<p>add + commit</p>
+					<pre class="big"><code data-trim contenteditable>
+$ git commit -am "Commit message."
+</code></pre>
+				</section>
+
+				<section>
+					<h2>Cherry picking</h2>
+					<pre class="big"><code data-trim contenteditable>
+$ git cherry-pick 5123dad9ce82d6a91b2d027015bfe9d907dcda7b
+</code></pre>
+				</section>
+
+				<section>
+					<h2>Ignoring things</h2>
+					<ul>
+						<li><code>.gitignore</code></li>
+						<li><code>.git/info/exclude</code></li>
+					</ul>
+					<pre class="medium"><code data-trim contenteditable>
+.netbeans
+.DS_Store
+*.o
+*.dll
+*.class
+</code></pre>
+				</section>
+
+				<section>
+					<h2>Status</h2>
+					<pre class="medium"><code data-trim contenteditable>
+$ git status
+# On branch master
+# Changes to be committed:
+#   (use "git reset HEAD &lt;file&gt;..." to unstage)
+#
+#       modified:   index.html
+#
+# Changes not staged for commit:
+#   (use "git add &lt;file&gt;..." to update what will be committed)
+#   (use "git checkout -- &lt;file&gt;..." to discard changes in working directory)
+#
+#       modified:   index.html
+#
+# Untracked files:
+#   (use "git add &lt;file&gt;..." to include in what will be committed)
+#
+#       README.md
+</code></pre>
+				</section>
+
+				<section>
+					<section>
+						<h2>Log</h2>
+						<pre class="medium"><code data-trim contenteditable>
+$ git log
+commit 1be40da451afae95451b47bc0d81309f31a65e5b
+Author: Santiago Rojo &lt;santiago.rojo@graion.com&gt;
+Date:   Thu Sep 5 16:49:04 2013 -0300
+
+    Add HTML structure to index.html.
+
+commit 5123dad9ce82d6a91b2d027015bfe9d907dcda7b
+Author: Santiago Rojo &lt;santiago.rojo@graion.com&gt;
+Date:   Thu Sep 5 11:00:53 2013 -0300
+
+    Add index file.
+</code></pre>
+						<p>what's in <code>master</code> but not in <code>development</code></p>
+						<pre class="big"><code data-trim contenteditable>
+$ git log development..master
+</code></pre>
+					</section>
+
+					<section>
+						<pre class="big"><code data-trim contenteditable>
+commit 1be40da451afae95451b47bc0d81309f31a65e5b
+Author: Santiago Rojo &lt;santiago.rojo@graion.com&gt;
+Date:   Thu Sep 5 16:49:04 2013 -0300
+
+    Add HTML structure to index.html.
+</code></pre>
+					</section>
+				</section>
+
+				<section>
+					<h2>Alias</h2>
+					<pre class="medium"><code data-trim contenteditable>
+$ git config --global alias.gol "log --graph --pretty=format:'%Cred%h%Creset - %C(blue)%an%Creset
+%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative"
+</code></pre>
+					<pre class="big"><code data-trim contenteditable>
+$ git gol
+</code></pre>
+					<img src="/images/gol.png" alt="">
+				</section>
+
+				<section>
+					<h2>Create branches</h2>
+					<pre class="big"><code data-trim contenteditable>
+$ git branch playground
+</code></pre>
+					<p>create + switch</p>
+					<pre class="big"><code data-trim contenteditable>
+$ git checkout -b development
+Switched to a new branch 'development'
+</code></pre>
+				</section>
+
+				<section>
+					<h2>List branches</h2>
+					<pre class="big"><code data-trim contenteditable>
+$ git branch
+* development
+  master
+  playground
+</code></pre>
+				</section>
+
+				<section>
+					<h2>Switch branches</h2>
+					<p>to another branch</p>
+					<pre class="big"><code data-trim contenteditable>
+$ git checkout playground
+Switched to branch 'playground'
+</code></pre>
+					<p>... or go anywhere</p>
+					<pre class="medium"><code data-trim contenteditable>
+$ git checkout 5123dad9ce82d6a91b2d027015bfe9d907dcda7b
+Note: checking out '5123dad9ce82d6a91b2d027015bfe9d907dcda7b'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b new_branch_name
+
+HEAD is now at 5123dad... Add index file.
+</code></pre>
+				</section>
+
+				<section>
+					<h2>Delete branches</h2>
+					<pre class="big"><code data-trim contenteditable>
+$ git branch -d playground
+</code></pre>
+					<pre class="big"><code data-trim contenteditable>
+$ git branch -D playground
+</code></pre>
+				</section>
+
+				<section>
+					<h2>Stashing</h2>
+					<pre class="big"><code data-trim contenteditable>
+$ git stash
+</code></pre>
+					<pre class="big"><code data-trim contenteditable>
+$ git stash save "Comments"
+</code></pre>
+					<pre class="big"><code data-trim contenteditable>
+$ git stash list
+</code></pre>
+					<pre class="big"><code data-trim contenteditable>
+$ git stash apply
+</code></pre>
+					<pre class="big"><code data-trim contenteditable>
+$ git stash drop
+</code></pre>
+					<p>apply + drop</p>
+					<pre class="big"><code data-trim contenteditable>
+$ git stash pop
+</code></pre>
+				</section>
+
+				<section>
+					<h2>Tags</h2>
+					<p>create</p>
+					<pre class="big"><code data-trim contenteditable>
+$ git tag -a R01 -m "First release"
+</code></pre>
+					<p>list</p>
+					<pre class="big"><code data-trim contenteditable>
+$ git tag
+R01
+</code></pre>
+				</section>
+
+				<section data-background="/images/merge_bg.jpg">
+					<h1 class="shadow">Merge</h1>
+				</section>
+
+				<section>
+					<img src="/images/merge_ff.png" alt="">
+					<pre class="big"><code data-trim contenteditable>
+$ git checkout master
+Switched to a new branch 'master'
+$ git merge feature
+</code></pre>
+				</section>
+
+				<section data-transition="none">
+					<pre class="big"><code data-trim contenteditable>
+$ git merge feature
+Updating 306eb60..56a2247
+Fast-forward
+ index.html | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+</code></pre>
+					<img src="/images/merge_ff_result.png" alt="">
+				</section>
+
+				<section>
+					<img src="/images/merge_nff.png" alt="">
+					<pre class="big"><code data-trim contenteditable>
+$ git checkout master
+Switched to a new branch 'master'
+$ git merge feature
+</code></pre>
+				</section>
+
+				<section data-transition="none">
+					<pre class="big"><code data-trim contenteditable>
+$ git merge feature
+Auto-merging index.html
+Merge made by the 'recursive' strategy.
+ index.html | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+</code></pre>
+					<img src="/images/merge_nff_result.png" alt="">
+				</section>
+
+				<section>
+					<h2>Solving conflicts</h2>
+					<pre class="big"><code data-trim contenteditable>
+$ git mergetool
+</code></pre>
+					<pre class="big"><code data-trim contenteditable>
+$ git commit
+</code></pre>
+				</section>
+
+				<section>
+					<p>Fast-forward</p>
+					<img src="/images/merge_ff_result.png" alt="" height="250">
+					<p>Recursive strategy</p>
+					<img src="/images/merge_nff_result.png" alt="" height="250">
+				</section>
+
+				<section data-background="/images/cat_stack.jpg">
+					<h1 class="shadow">Rebase</h1>
+				</section>
+
+				<section>
+					<img src="/images/rebase_ff.png" alt="">
+					<pre class="big"><code data-trim contenteditable>
+$ git checkout master
+Switched to a new branch 'master'
+$ git rebase feature
+</code></pre>
+				</section>
+
+				<section data-transition="none">
+					<pre class="big"><code data-trim contenteditable>
+$ git rebase feature
+First, rewinding head to replay your work on top of it...
+Fast-forwarded master to feature.
+</code></pre>
+					<img src="/images/rebase_ff_result.png" alt="">
+				</section>
+
+				<section>
+					<img src="/images/rebase_wrong.png" alt="">
+					<pre class="big"><code data-trim contenteditable>
+$ git checkout master
+Switched to branch 'master'
+$ git rebase feature
+</code></pre>
+				</section>
+
+				<section data-transition="none">
+					<pre class="big"><code data-trim contenteditable>
+$ git rebase feature
+First, rewinding head to replay your work on top of it...
+Applying: c3
+</code></pre>
+					<img src="/images/rebase_wrong_result.png" alt="">
+				</section>
+
+				<section data-background="/images/wrong.jpg" data-transition="none">
+				</section>
+
+				<section data-background="/images/wrong.jpg" data-transition="zoom">
+					<h1 class="shadow">DON'T</h1>
+				</section>
+
+				<section data-transition="zoom">
+					<h2>let's try again</h2>
+				</section>
+
+				<section>
+					<img src="/images/rebase_right.png" alt="">
+					<pre class="big"><code data-trim contenteditable>
+$ git checkout feature
+Switched to branch 'feature'
+$ git rebase master
+</code></pre>
+				</section>
+
+				<section data-transition="none">
+					<pre class="big"><code data-trim contenteditable>
+$ git rebase master
+First, rewinding head to replay your work on top of it...
+Applying: c4
+Applying: c5
+Applying: c6
+</code></pre>
+					<img src="/images/rebase_right_rebase.png" alt="">
+				</section>
+
+				<section data-transition="none">
+					<pre class="medium"><code data-trim contenteditable>
+$ git checkout master
+Switched to branch 'master'
+$ git merge feature
+Updating 306eb60..56a2247
+Fast-forward
+ index.html | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+</code></pre>
+					<img src="/images/rebase_right_merge.png" alt="">
+				</section>
+
+				<section>
+					<h2>Solving conflicts</h2>
+					<pre class="big"><code data-trim contenteditable>
+$ git mergetool
+</code></pre>
+					<pre class="big"><code data-trim contenteditable>
+$ git rebase --continue
+</code></pre>
+				</section>
+
+				<section>
+					<p>Wrong rebase</p>
+					<img src="/images/rebase_wrong_result.png" alt="" height="250">
+					<p>Rebase-Merge</p>
+					<img src="/images/rebase_right_merge.png" alt="" height="250">
+				</section>
+
+				<section data-background="#3AB54A">
+					<h1>Remotes</h1>
+				</section>
+
+				<section>
+					<h2>Add remotes</h2>
+					<pre class="big"><code data-trim contenteditable>
+$ git remote add graion http://dev.graion.com/git/keepgitsimple
+</code></pre>
+				</section>
+
+				<section>
+					<h2>List remotes</h2>
+					<pre class="big"><code data-trim contenteditable>
+$ git remote
+origin
+graion
+</code></pre>
+					<p>show details</p>
+					<pre class="medium"><code data-trim contenteditable>
+$ git remote graion
+git remote show origin
+* remote graion
+  Fetch URL: http://dev.graion.com/git/keepgitsimple
+  Push  URL: http://dev.graion.com/git/keepgitsimple
+  HEAD branch: master
+  Remote branches:
+    development   tracked
+    master        tracked
+  Local branches configured for 'git pull':
+    development   rebases onto remote development
+    master        merges with remote master
+  Local refs configured for 'git push':
+    development   pushes to development (up to date)
+    master        pushes to master      (up to date)
+</code></pre>
+				</section>
+
+				<section>
+					<h2>Fetching data</h2>
+					<pre class="big"><code data-trim contenteditable>
+$ git fetch origin
+</code></pre>
+					<p>fetch + merge <code>:S</code></p>
+					<pre class="big"><code data-trim contenteditable>
+$ git pull origin
+</code></pre>
+					<p>fetch + rebase <code>:)</code></p>
+					<pre class="big"><code data-trim contenteditable>
+$ git pull origin --rebase
+</code></pre>
+				</section>
+
+				<section>
+					<h2>Publishing changes</h2>
+					<p>only the first time</p>
+					<pre class="big"><code data-trim contenteditable>
+$ git push origin local_branch:remote_branch --set-upstream
+</code></pre>
+					<p>then just use</p>
+					<pre class="big"><code data-trim contenteditable>
+$ git push
+</code></pre>
+					<p>don't be proud of use</p>
+					<pre class="big"><code data-trim contenteditable>
+$ git push origin local_branch:remote_branch --force
+</code></pre>
+				</section>
+
+				<section data-background="/images/branching_model_bg.jpg">
+					<h1 class="shadow">Branching model</h1>
+				</section>
+
+				<section data-background="#ffffff" data-transition="none">
+					<img src="/images/branching_model.png" alt="">
+				</section>
+
+				<section data-background="#ffffff" data-transition="none">
+					<img src="/images/branching_model_svn.png" alt="">
+				</section>
+
+				<section data-background="#ffffff">
+					<h2 class="dark">Use case</h2>
+					<img src="/images/liveintent.png" alt="">
+				</section>
+
+				<section>
+					<img src="/images/liveintent.png" alt="" height="50">
+					<br>
+					<img src="/images/branching_model_li.png" alt="">
+				</section>
+
+				<section data-background="/images/kid.jpg">
+					<h1 class="shadow">Applications and tools</h1>
+				</section>
+
+				<section>
+					<h2>Linux</h2>
+					<pre class="big"><code data-trim contenteditable>
+$ sudo apt-add-repository ppa:pdoes/ppa
+$ sudo apt-get update
+$ sudo apt-get install git gitk
+</code></pre>
+				</section>
+
+				<section>
+					<h2>Windows</h2>
+					<ol>
+						<li><a href="http://git-scm.com/download/win">http://git-scm.com/download/win</a></li>
+						<li>Next, next, next...</li>
+					</ol>
+				</section>
+
+				<section>
+					<h2>gitk</h2>
+					<img src="/images/gitk.png" alt="" height="500">
+				</section>
+
+				<section>
+					<h2>SmartGit</h2>
+					<img src="/images/smartgit.png" alt="" height="500">
+				</section>
+
+				<section>
+					<h2>Links</h2>
+					<ul>
+						<li>Git official site (<a href="http://git-scm.com">http://git-scm.com</a>)</li>
+						<li>Try Git (<a href="http://try.github.io/">http://try.github.io/</a>)</li>
+						<li>LearnGitBranching (<a href="http://pcottle.github.io/learnGitBranching/">http://pcottle.github.io/learnGitBranching/</a>)</li>
+						<li>Interactive cheatsheet (<a href="http://ndpsoftware.com/git-cheatsheet.html">http://ndpsoftware.com/git-cheatsheet.html</a>)</li>
+						<li>Git ready (<a href="http://gitready.com/">http://gitready.com/</a>)</li>
+					</ul>
+				</section>
+
+				<section>
+					<section data-background="/images/killbill_gogo_1.jpg">
+						<h1><br><br><br><br></h1>
+						<h1 class="shadow">Questions?</h1>
+					</section>
+
+					<section data-background="/images/killbill_gogo_2.jpg">
+						<h1><br><br><br><br></h1>
+						<h1 class="shadow">Are you sure?</h1>
+					</section>
+				</section>
+
+				<section data-background="/images/grumpy.jpg">
+					<h1><br><br><br><br></h1>
+					<h1 class="shadow">Thank you</h1>
+				</section>
+
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.min.js"></script>
+
+		<script>
+
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				width: 1280,
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
