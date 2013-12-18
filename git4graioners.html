@@ -21,7 +21,7 @@
 		<!-- If the query includes 'print-pdf', use the PDF print sheet -->
 		<link rel="stylesheet" href="css/print/pdf.css" media="print">
 		<script>
-			document.write('<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+			document.write('<link rel="stylesheet" href="css/print/' + (window.location.search.match(/print-pdf/gi) ? 'pdf' : 'paper') + '.css" type="text/css" media="print">');
 		</script>
 		<!--[if lt IE 9]>
 		<script src="lib/js/html5shiv.js"></script>
@@ -35,7 +35,8 @@
 					<h1>Git 4 graioners</h1>
 					<h3>... Git just want to have fun and you should too</h3>
 					<p>
-						<small>by <a>Marcia Paez Aballay</a>, <a>Ramiro Berruezo</a> &amp; <a>Santiago Rojo</a></small>
+						<small>by <a>Marcia Paez Aballay</a>, <a>Ramiro Berruezo</a> &amp;
+						<a>Santiago Rojo</a></small>
 					</p>
 					<img src="images/graion_logo.png" alt="">
 				</section>
@@ -46,7 +47,6 @@
 						<li>About VCS</li>
 						<li>Why Git?</li>
 						<li>Where is my code?</li>
-						<li>Anatomy of a commit</li>
 						<li>Anatomy of a branch</li>
 						<li>Git commands
 							<ul>
@@ -78,7 +78,7 @@
 				</section>
 
 				<section data-transition="zoom">
-					<h2>But, really, is something more like...</h2>
+					<h2>But really, is something more like...</h2>
 				</section>
 
 				<section data-background="images/phonebooth.jpg">
@@ -90,11 +90,7 @@
 
 				<section>
 					<h3>Centralized vs. Decentralized vs. Distributed</h3>
-					<img height="500" src="images/architectures.png" alt="Network diagrams" class="image">
-				</section>
-
-				<section>
-					<h2>VCS tools</h2>
+					<img height="400" src="images/architectures.png" alt="Network diagrams" class="image">
 					<table>
 						<tr>
 							<th>Centralized</th>
@@ -116,10 +112,6 @@
 							</td>
 						</tr>
 					</table>
-
-					<aside class="notes">
-						http://biz30.timedoctor.com/git-mecurial-and-cvs-comparison-of-svn-software/
-					</aside>
 				</section>
 
 				<section>
@@ -162,8 +154,8 @@
 				</section>
 
 				<section>
-					<h2>Anatomy of a commit</h2>
-					<img src="images/commit.png" alt="">
+					<h2>Workflow</h2>
+					<img src="images/workflow.png" alt="">
 				</section>
 
 				<section data-background="images/branches_bg.jpg">
@@ -172,167 +164,35 @@
 
 				<section>
 					<img src="images/branch.png" alt="">
-					<h2></h2>
-					<h2>... are just pointers</h2>
+					<h2 class="fragment">... are just pointers</h2>
+					<h2 class="fragment">... but <code>HEAD</code> is an important one.</h2>
 				</section>
 
 				<section data-background="#3ab54a">
 					<h1>Git commands</h1>
 				</section>
 
-				<section data-background="#ffffff" data-transition="none">
-					<h2 class="dark">Wait! What about <code>head</code>?</h2>
-					<img src="images/clippo.jpg" alt="">
-				</section>
-
-				<section data-background="#ffffff" data-transition="none">
-					<h2 class="dark">Ok, danke!</h2>
-					<img src="images/clippo.jpg" alt="">
-				</section>
-
-				<section data-background="#3ab54a">
-					<h1>Git commands</h1>
-				</section>
-
-				<section data-background="#ffffff" data-transition="none">
-					<img src="images/commands.png" alt="">
-					<p class="dark">152 commands</p>
-				</section>
-
-				<section data-background="#ffffff" data-transition="none">
-					<img src="images/plumbing.png" alt="">
-					<p class="dark">111 "plumbing" commands</p>
-				</section>
-
-				<section data-background="#ffffff" data-transition="none">
-					<img src="images/commands.png" alt="">
-					<p class="dark">152 commands</p>
-				</section>
-
-				<section data-background="#ffffff" data-transition="none">
-					<img src="images/porcelain.png" alt="">
-					<p class="dark">41 "porcelain" commands</p>
-				</section>
-
-				<section data-background="#ffffff" data-transition="none">
-					<img src="images/essentials.png" alt="">
-					<p class="dark">21 "essentials" commands</p>
+				<section>
+					<h2><code>git help</code> is your BFF <code>&lt;3</code></h2>
 				</section>
 
 				<section>
-					<h2>Configurations</h2
->					<pre class="big"><code data-trim contenteditable>
-$ git config --global user.name "Santiago Rojo"
-</code></pre>
-					<pre class="big"><code data-trim contenteditable>
-$ git config --global user.email santiago.rojo@graion.com
-</code></pre>
-					<pre class="big"><code data-trim contenteditable>
-$ git config --global color.ui true
-</code></pre>
-					<pre class="big"><code data-trim contenteditable>
-$ git config --global merge.tool meld
-</code></pre>
-				</section>
-
-				<section>
-					<h2>Initialize a repository</h2>
+					<h3>Initialize a repository</h3>
 					<pre class="big"><code data-trim contenteditable>
 $ git init
 Initialized empty Git repository in /home/tiagox/KeepGITSimple/.git/
 </code></pre>
-				</section>
-
-				<section>
-					<section>
-						<h2>Using an existing repository</h2>
-						<pre class="big"><code data-trim contenteditable>
+					<h3>Using an existing repository</h3>
+					<pre class="big"><code data-trim contenteditable>
 $ git clone http://dev.graion.com/git/keepgitsimple
 Cloning into 'keepgitsimple'...
-remote: Counting objects: 4665, done.
-remote: Compressing objects: 100% (2281/2281), done.
-remote: Total 4665 (delta 2715), reused 4136 (delta 2247)
-Receiving objects: 100% (4665/4665), 16.39 MiB | 227.00 KiB/s, done.
-Resolving deltas: 100% (2715/2715), done.
+...
 Checking connectivity... done
 </code></pre>
-
-						<aside class="notes">
-							<ul>
-								<li>Talk about protocols.</li>
-								<li style="color: red; font-weight: bold;">DOWN!</li>
-							</ul>
-						</aside>
-					</section>
-
-					<section>
-						<h2>Protocols</h2>
-						<ul>
-							<li>ssh://</li>
-							<li>http[s]://</li>
-							<li>git://</li>
-						</ul>
-					</section>
 				</section>
 
 				<section>
-					<h2>Adding files and changes</h2>
-					<p>all</p>
-					<pre class="big"><code data-trim contenteditable>
-$ git add .
-</code></pre>
-					<p>files</p>
-					<pre class="big"><code data-trim contenteditable>
-$ git add README.md
-</code></pre>
-					<p>patterns</p>
-					<pre class="big"><code data-trim contenteditable>
-$ git add src/*.java
-</code></pre>
-					<p>interactive</p>
-					<pre class="big"><code data-trim contenteditable>
-$ git add -p
-</code></pre>
-				</section>
-
-				<section>
-					<h2>Commiting changes</h2>
-					<pre class="big"><code data-trim contenteditable>
-$ git commit
-</code></pre>
-					<pre class="big"><code data-trim contenteditable>
-$ git commit -m "Commit message."
-</code></pre>
-					<p>add + commit</p>
-					<pre class="big"><code data-trim contenteditable>
-$ git commit -am "Commit message."
-</code></pre>
-				</section>
-
-				<section>
-					<h2>Cherry picking</h2>
-					<pre class="big"><code data-trim contenteditable>
-$ git cherry-pick 5123dad9ce82d6a91b2d027015bfe9d907dcda7b
-</code></pre>
-				</section>
-
-				<section>
-					<h2>Ignoring things</h2>
-					<ul>
-						<li><code>.gitignore</code></li>
-						<li><code>.git/info/exclude</code></li>
-					</ul>
-					<pre class="medium"><code data-trim contenteditable>
-.netbeans
-.DS_Store
-*.o
-*.dll
-*.class
-</code></pre>
-				</section>
-
-				<section>
-					<h2>Status</h2>
+					<h3>Status</h3>
 					<pre class="medium"><code data-trim contenteditable>
 $ git status
 # On branch master
@@ -352,24 +212,78 @@ $ git status
 #
 #       README.md
 </code></pre>
+			</section>
+
+				<section>
+					<h3>Adding files and changes</h3>
+					<p>all</p>
+					<pre class="big"><code data-trim contenteditable>
+$ git add .
+</code></pre>
+					<p>files</p>
+					<pre class="big"><code data-trim contenteditable>
+$ git add README.md
+</code></pre>
+					<p>patterns</p>
+					<pre class="big"><code data-trim contenteditable>
+$ git add src/*.java
+</code></pre>
+					<p>interactive (+1)</p>
+					<pre class="big"><code data-trim contenteditable>
+$ git add -p
+</code></pre>
+				</section>
+
+				<section>
+					<h3>Removing files and changes</h3>
+					<p>files</p>
+					<pre class="big"><code data-trim contenteditable>
+$ git rm README.md
+</code></pre>
+					<p>patterns</p>
+					<pre class="big"><code data-trim contenteditable>
+$ git rm src/*.java
+</code></pre>
+					<p>clean untracked</p>
+					<pre class="big"><code data-trim contenteditable>
+$ git clean -f
+</code></pre>
+				</section>
+
+				<section>
+					<h3>Commiting changes</h3>
+					<pre class="big"><code data-trim contenteditable>
+$ git commit
+</code></pre>
+					<pre class="big"><code data-trim contenteditable>
+$ git commit -m "Commit message."
+</code></pre>
+					<p>add + commit</p>
+					<pre class="big"><code data-trim contenteditable>
+$ git commit -am "Commit message."
+</code></pre>
+					<h3>Cherry picking</h3>
+					<pre class="big"><code data-trim contenteditable>
+$ git cherry-pick 5123dad9ce82d6a91b2d027015bfe9d907dcda7b
+</code></pre>
 				</section>
 
 				<section>
 					<section>
-						<h2>Log</h2>
-						<pre class="medium"><code data-trim contenteditable>
+						<h3>Log</h3>
+						<pre class="big"><code data-trim contenteditable>
 $ git log
-commit 1be40da451afae95451b47bc0d81309f31a65e5b
-Author: Santiago Rojo &lt;santiago.rojo@graion.com&gt;
-Date:   Thu Sep 5 16:49:04 2013 -0300
-
-    Add HTML structure to index.html.
-
-commit 5123dad9ce82d6a91b2d027015bfe9d907dcda7b
-Author: Santiago Rojo &lt;santiago.rojo@graion.com&gt;
-Date:   Thu Sep 5 11:00:53 2013 -0300
-
-    Add index file.
+</code></pre>
+						<pre class="big"><code data-trim contenteditable>
+$ git log --oneline --graph
+* 9b26e2e Adds a comment.
+* 1733561 Comment in main.c.
+* 80c5d84 Standar main function signature.
+* f10525b Add hello world message.
+* 1b6a5ad Added backup files to .gitignore.
+* 3a76a29 Added .gitignore.
+* b63aa62 main file added.
+* 1e2dde5 First commit.
 </code></pre>
 						<p>what's in <code>master</code> but not in <code>development</code></p>
 						<pre class="big"><code data-trim contenteditable>
@@ -389,31 +303,134 @@ Date:   Thu Sep 5 16:49:04 2013 -0300
 				</section>
 
 				<section>
-					<h2>Alias</h2>
-					<pre class="medium"><code data-trim contenteditable>
-$ git config --global alias.gol "log --graph --pretty=format:'%Cred%h%Creset - %C(blue)%an%Creset
-%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative"
+					<h3>Get other's commits</h3>
+						<pre class="big"><code data-trim contenteditable>
+$ git fetch origin
+$ git rebase origin/this_branch
 </code></pre>
-					<pre class="big"><code data-trim contenteditable>
-$ git gol
+						<p>... or just</p>
+						<pre class="big"><code data-trim contenteditable>
+$ git pull origin
 </code></pre>
-					<img src="images/gol.png" alt="">
+						<pre class="big"><code data-trim contenteditable>
+$ git pull origin --rebase
+</code></pre>
+				</section>
+
+				<section data-background="#ffffff">
+					<img height="400" src="images/trollface.png" alt="">
+					<h2 class="dark">conflicts?</h2>
 				</section>
 
 				<section>
-					<h2>Create branches</h2>
+					<h3>Caused by git pull/merge</h3>
+						<pre class="big"><code data-trim contenteditable>
+$ git pull origin
+</code></pre>
+					<p>CONFLICT!</p>
+						<pre class="big"><code data-trim contenteditable>
+$ git mergetool
+# resolve
+$ git commit
+</code></pre>
+				</section>
+
+				<section>
+					<h3>Caused by git pull/rebase</h3>
+					<pre class="big"><code data-trim contenteditable>
+$ git pull origin --rebase
+</code></pre>
+					<p>CONFLICT!</p>
+					<pre class="big"><code data-trim contenteditable>
+$ git mergetool
+# resolve
+$ git rebase --continue
+</code></pre>
+					<p>if you just don't want any trouble</p>
+					<pre class="big"><code data-trim contenteditable>
+$ git rebase --abort
+</code></pre>
+				</section>
+
+				<section data-background="#ffffff">
+					<img height="400" src="images/thumbsup.png" alt="">
+					<h2 class="dark">we're good now!</h2>
+				</section>
+
+				<section>
+					<h3>Share your commits</h3>
+					<pre class="big"><code data-trim contenteditable>
+$ git push origin local_branch:remote_branch --set-upstream
+</code></pre>
+					<p>don't be proud of use</p>
+					<pre class="big"><code data-trim contenteditable>
+$ git push origin local_branch:remote_branch --force
+</code></pre>
+				</section>
+
+				<section data-background="images/officespace.jpg">
+					<h1 class="shadow">Undoing stuffs</h1>
+				</section>
+
+				<section>
+					<h3><code>git checkout</code></h3>
+					<p>discarting changes</p>
+					<pre class="big"><code data-trim contenteditable>
+$ git checkout -- some_file
+</code></pre>
+				</section>
+
+				<section data-background="#cc0000">
+					<h1>DISCLAIMER!</h1>
+				</section>
+
+				<section>
+					<h3><code>git reset</code></h3>
+					<p>removing from stage</p>
+					<pre class="big"><code data-trim contenteditable>
+$ git reset HEAD some_file
+</code></pre>
+					<p>undo last commit keeping changes</p>
+					<pre class="big"><code data-trim contenteditable>
+$ git reset HEAD~1
+</code></pre>
+					<p>undo last commit discarting changes</p>
+					<pre class="big"><code data-trim contenteditable>
+$ git reset HEAD~1 --hard
+</code></pre>
+					<p>... or you can space/time travel through your commits</p>
+					<pre class="big"><code data-trim contenteditable>
+$ git reset HEAD~4^3^^^2^1
+</code></pre>
+					<pre class="big"><code data-trim contenteditable>
+$ git reset other_branch
+</code></pre>
+					<pre class="big"><code data-trim contenteditable>
+$ git reset origin/this_branch
+</code></pre>
+				</section>
+
+				<section data-background="images/branches_bg.jpg">
+					<h1 class="shadow">Branches</h1>
+				</section>
+
+				<section>
+					<h3>Create branches</h3>
 					<pre class="big"><code data-trim contenteditable>
 $ git branch playground
 </code></pre>
-					<p>create + switch</p>
 					<pre class="big"><code data-trim contenteditable>
 $ git checkout -b development
 Switched to a new branch 'development'
 </code></pre>
-				</section>
-
-				<section>
-					<h2>List branches</h2>
+					<h3>Delete branches</h3>
+					<pre class="big"><code data-trim contenteditable>
+$ git branch -d playground
+</code></pre>
+					<pre class="big"><code data-trim contenteditable>
+$ git branch -D playground
+</code></pre>
+					<h3>List branches</h3>
 					<pre class="big"><code data-trim contenteditable>
 $ git branch
 * development
@@ -423,7 +440,7 @@ $ git branch
 				</section>
 
 				<section>
-					<h2>Switch branches</h2>
+					<h3>Switch branches</h3>
 					<p>to another branch</p>
 					<pre class="big"><code data-trim contenteditable>
 $ git checkout playground
@@ -448,17 +465,7 @@ HEAD is now at 5123dad... Add index file.
 				</section>
 
 				<section>
-					<h2>Delete branches</h2>
-					<pre class="big"><code data-trim contenteditable>
-$ git branch -d playground
-</code></pre>
-					<pre class="big"><code data-trim contenteditable>
-$ git branch -D playground
-</code></pre>
-				</section>
-
-				<section>
-					<h2>Stashing</h2>
+					<h3>Stashing</h3>
 					<pre class="big"><code data-trim contenteditable>
 $ git stash
 </code></pre>
@@ -480,17 +487,43 @@ $ git stash pop
 </code></pre>
 				</section>
 
+				<section data-background="#3AB54A">
+					<h1>Remotes</h1>
+				</section>
+
 				<section>
-					<h2>Tags</h2>
-					<p>create</p>
-					<pre class="big"><code data-trim contenteditable>
-$ git tag -a R01 -m "First release"
+					<section>
+						<h3>Add remotes</h3>
+						<pre class="big"><code data-trim contenteditable>
+$ git remote add graion http://dev.graion.com/git/keepgitsimple
 </code></pre>
-					<p>list</p>
-					<pre class="big"><code data-trim contenteditable>
-$ git tag
-R01
+						<h3>List remotes</h3>
+						<pre class="big"><code data-trim contenteditable>
+$ git remote
+origin
+graion
 </code></pre>
+					</section>
+
+					<section>
+						<h3>Show remote details</h3>
+						<pre class="big stretch"><code data-trim contenteditable>
+$ git remote show graion
+* remote graion
+  Fetch URL: http://dev.graion.com/git/keepgitsimple
+  Push  URL: http://dev.graion.com/git/keepgitsimple
+  HEAD branch: master
+  Remote branches:
+    development   tracked
+    master        tracked
+  Local branches configured for 'git pull':
+    development   rebases onto remote development
+    master        merges with remote master
+  Local refs configured for 'git push':
+    development   pushes to development (up to date)
+    master        pushes to master      (up to date)
+</code></pre>
+					</section>
 				</section>
 
 				<section data-background="images/merge_bg.jpg">
@@ -535,16 +568,6 @@ Merge made by the 'recursive' strategy.
  1 file changed, 1 insertion(+), 1 deletion(-)
 </code></pre>
 					<img src="images/merge_nff_result.png" alt="">
-				</section>
-
-				<section>
-					<h2>Solving conflicts</h2>
-					<pre class="big"><code data-trim contenteditable>
-$ git mergetool
-</code></pre>
-					<pre class="big"><code data-trim contenteditable>
-$ git commit
-</code></pre>
 				</section>
 
 				<section>
@@ -639,89 +662,68 @@ Fast-forward
 				</section>
 
 				<section>
-					<h2>Solving conflicts</h2>
-					<pre class="big"><code data-trim contenteditable>
-$ git mergetool
-</code></pre>
-					<pre class="big"><code data-trim contenteditable>
-$ git rebase --continue
-</code></pre>
-				</section>
-
-				<section>
 					<p>Wrong rebase</p>
 					<img src="images/rebase_wrong_result.png" alt="" height="250">
 					<p>Rebase-Merge</p>
 					<img src="images/rebase_right_merge.png" alt="" height="250">
 				</section>
 
-				<section data-background="#3AB54A">
-					<h1>Remotes</h1>
+				<section data-background="images/twins.png">
+					<h1 class="shadow">Differences</h1>
 				</section>
 
 				<section>
-					<h2>Add remotes</h2>
+					<h3>Local changes</h3>
 					<pre class="big"><code data-trim contenteditable>
-$ git remote add graion http://dev.graion.com/git/keepgitsimple
+$ git diff
 </code></pre>
+					<pre class="big"><code data-trim contenteditable>
+$ git diff --staged
+</code></pre>
+					<h3>Between branches</h3>
+					<pre class="big"><code data-trim contenteditable>
+$ git diff this_branch other_branch # CHECK
+</code></pre>
+					<pre class="big"><code data-trim contenteditable>
+$ git diff this_branch other_branch -- some_file # CHECK
+</code></pre>
+					<pre class="big"><code data-trim contenteditable>
+$ git diff this_branch:some_file other_branch:some_file
+</code></pre>
+					<p>... order matters</p>
+				</section>
+
+				<section>hasta acá esta chequeado...</section>
+
+				<section>
+					<h1>Configurations</h1>
 				</section>
 
 				<section>
-					<h2>List remotes</h2>
-					<pre class="big"><code data-trim contenteditable>
-$ git remote
-origin
-graion
-</code></pre>
-					<p>show details</p>
+					<h2>Ignoring things</h2>
+					<ul>
+						<li><code>.gitignore</code></li>
+						<li><code>.git/info/exclude</code></li>
+					</ul>
 					<pre class="medium"><code data-trim contenteditable>
-$ git remote graion
-git remote show origin
-* remote graion
-  Fetch URL: http://dev.graion.com/git/keepgitsimple
-  Push  URL: http://dev.graion.com/git/keepgitsimple
-  HEAD branch: master
-  Remote branches:
-    development   tracked
-    master        tracked
-  Local branches configured for 'git pull':
-    development   rebases onto remote development
-    master        merges with remote master
-  Local refs configured for 'git push':
-    development   pushes to development (up to date)
-    master        pushes to master      (up to date)
+.netbeans
+.DS_Store
+*.o
+*.dll
+*.class
 </code></pre>
 				</section>
 
 				<section>
-					<h2>Fetching data</h2>
-					<pre class="big"><code data-trim contenteditable>
-$ git fetch origin
+					<h2>Alias</h2>
+					<pre class="medium"><code data-trim contenteditable>
+$ git config --global alias.gol "log --graph --pretty=format:'%Cred%h%Creset - %C(blue)%an%Creset
+%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative"
 </code></pre>
-					<p>fetch + merge <code>:S</code></p>
 					<pre class="big"><code data-trim contenteditable>
-$ git pull origin
+$ git gol
 </code></pre>
-					<p>fetch + rebase <code>:)</code></p>
-					<pre class="big"><code data-trim contenteditable>
-$ git pull origin --rebase
-</code></pre>
-				</section>
-
-				<section>
-					<h2>Publishing changes</h2>
-					<p>only the first time</p>
-					<pre class="big"><code data-trim contenteditable>
-$ git push origin local_branch:remote_branch --set-upstream
-</code></pre>
-					<p>then just use</p>
-					<pre class="big"><code data-trim contenteditable>
-$ git push
-</code></pre>
-					<p>don't be proud of use</p>
-					<pre class="big"><code data-trim contenteditable>
-$ git push origin local_branch:remote_branch --force
-</code></pre>
+					<img src="images/gol.png" alt="">
 				</section>
 
 				<section data-background="images/branching_model_bg.jpg">
@@ -745,6 +747,28 @@ $ git push origin local_branch:remote_branch --force
 					<img src="images/liveintent.png" alt="" height="50">
 					<br>
 					<img src="images/branching_model_li.png" alt="">
+				</section>
+
+				<section>
+					<h2>Configurations</h2
+>					<pre class="big"><code data-trim contenteditable>
+$ git config --global user.name "Santiago Rojo"
+</code></pre>
+					<pre class="big"><code data-trim contenteditable>
+$ git config --global user.email santiago.rojo@graion.com
+</code></pre>
+					<pre class="big"><code data-trim contenteditable>
+$ git config --global color.ui true
+</code></pre>
+					<pre class="big"><code data-trim contenteditable>
+$ git config --global merge.tool meld
+</code></pre>
+					<pre class="big"><code data-trim contenteditable>
+$ git config --global STORE PASSWORD
+</code></pre>
+					<pre class="big"><code data-trim contenteditable>
+$ git config --global
+</code></pre>
 				</section>
 
 				<section data-background="images/kid.jpg">
