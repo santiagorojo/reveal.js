@@ -42,6 +42,7 @@
 				</section>
 
 				<section>
+				<h1>ACTUIALIZÁME!</h1>
 					<h2>Agenda</h2>
 					<ul>
 						<li>About VCS</li>
@@ -173,7 +174,7 @@
 				</section>
 
 				<section>
-					<h2><code>git help</code> is your BFF <code>&lt;3</code></h2>
+					<h2><code>git help</code> is your BFF <code>:3</code></h2>
 				</section>
 
 				<section>
@@ -193,8 +194,10 @@ Checking connectivity... done
 
 				<section>
 					<h3>Status</h3>
-					<pre class="medium"><code data-trim contenteditable>
+					<pre class="big"><code data-trim contenteditable>
 $ git status
+</code></pre>
+					<pre class="medium"><code data-trim contenteditable>
 # On branch master
 # Changes to be committed:
 #   (use "git reset HEAD &lt;file&gt;..." to unstage)
@@ -302,8 +305,17 @@ Date:   Thu Sep 5 16:49:04 2013 -0300
 					</section>
 				</section>
 
+				<section data-background="#3a40b5">
+					<h1>(╯°□°)╯︵ ┻━┻</h1>
+					<h3 class="fragment">DEMO TIME!</h3>
+				</section>
+
 				<section>
 					<h3>Get other's commits</h3>
+						<pre class="big"><code data-trim contenteditable>
+$ git fetch origin
+$ git merge origin/this_branch
+</code></pre>
 						<pre class="big"><code data-trim contenteditable>
 $ git fetch origin
 $ git rebase origin/this_branch
@@ -354,7 +366,7 @@ $ git rebase --abort
 
 				<section data-background="#ffffff">
 					<img height="400" src="images/thumbsup.png" alt="">
-					<h2 class="dark">we're good now!</h2>
+					<h2 class="dark">solved!</h2>
 				</section>
 
 				<section>
@@ -412,6 +424,7 @@ $ git reset origin/this_branch
 
 				<section data-background="images/branches_bg.jpg">
 					<h1 class="shadow">Branches</h1>
+					<h3 class="shadow">... again</h3>
 				</section>
 
 				<section>
@@ -447,8 +460,10 @@ $ git checkout playground
 Switched to branch 'playground'
 </code></pre>
 					<p>... or go anywhere</p>
-					<pre class="medium"><code data-trim contenteditable>
+					<pre class="big"><code data-trim contenteditable>
 $ git checkout 5123dad9ce82d6a91b2d027015bfe9d907dcda7b
+</code></pre>
+					<pre class="medium"><code data-trim contenteditable>
 Note: checking out '5123dad9ce82d6a91b2d027015bfe9d907dcda7b'.
 
 You are in 'detached HEAD' state. You can look around, make experimental
@@ -668,86 +683,6 @@ Fast-forward
 					<img src="images/rebase_right_merge.png" alt="" height="250">
 				</section>
 
-				<section data-background="images/twins.png">
-					<h1 class="shadow">Differences</h1>
-				</section>
-
-				<section>
-					<h3>Local changes</h3>
-					<pre class="big"><code data-trim contenteditable>
-$ git diff
-</code></pre>
-					<pre class="big"><code data-trim contenteditable>
-$ git diff --staged
-</code></pre>
-					<h3>Between branches</h3>
-					<pre class="big"><code data-trim contenteditable>
-$ git diff this_branch other_branch # CHECK
-</code></pre>
-					<pre class="big"><code data-trim contenteditable>
-$ git diff this_branch other_branch -- some_file # CHECK
-</code></pre>
-					<pre class="big"><code data-trim contenteditable>
-$ git diff this_branch:some_file other_branch:some_file
-</code></pre>
-					<p>... order matters</p>
-				</section>
-
-				<section data-background="#ffffff">
-					<img src="images/gitblame.png" alt="git blame" class="image">
-				</section>
-
-				<section>
-					<h2>Whose fault is it?</h2>
-					<pre class="big"><code data-trim contenteditable>
-$ git blame main.c
-</code></pre>
-					<pre class="medium"><code data-trim contenteditable>
-f10525b3 (Santiago Rojo   2013-01-18 12:24:25 -0300 1) #include &lt;stdio.h&gt;
-f10525b3 (Santiago Rojo   2013-01-18 12:24:25 -0300 2)
-80c5d84a (Marcia Paez     2013-01-18 14:16:03 -0300 3) int main (void) {
-b63aa62d (Santiago Rojo   2013-01-18 12:20:12 -0300 4)
-f10525b3 (Ramiro Berruezo 2013-01-18 12:24:25 -0300 5)    printf("Hello world!");
-b63aa62d (Santiago Rojo   2013-01-18 12:20:12 -0300 6)    return 0;
-b63aa62d (Santiago Rojo   2013-01-18 12:20:12 -0300 7)
-b63aa62d (Santiago Rojo   2013-01-18 12:20:12 -0300 8) }
-b63aa62d (Santiago Rojo   2013-01-18 12:20:12 -0300 9)
-</code></pre>
-				</section>
-
-				<section>hasta acá esta chequeado...</section>
-
-				<section>
-					<h1>Configurations</h1>
-				</section>
-
-				<section>
-					<h2>Ignoring things</h2>
-					<ul>
-						<li><code>.gitignore</code></li>
-						<li><code>.git/info/exclude</code></li>
-					</ul>
-					<pre class="medium"><code data-trim contenteditable>
-.netbeans
-.DS_Store
-*.o
-*.dll
-*.class
-</code></pre>
-				</section>
-
-				<section>
-					<h2>Alias</h2>
-					<pre class="medium"><code data-trim contenteditable>
-$ git config --global alias.gol "log --graph --pretty=format:'%Cred%h%Creset - %C(blue)%an%Creset
-%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative"
-</code></pre>
-					<pre class="big"><code data-trim contenteditable>
-$ git gol
-</code></pre>
-					<img src="images/gol.png" alt="">
-				</section>
-
 				<section data-background="images/branching_model_bg.jpg">
 					<h1 class="shadow">Branching model</h1>
 				</section>
@@ -771,9 +706,60 @@ $ git gol
 					<img src="images/branching_model_li.png" alt="">
 				</section>
 
+				<section data-background="images/twins.png">
+					<h1 class="shadow">Differences</h1>
+				</section>
+
 				<section>
-					<h2>Configurations</h2
->					<pre class="big"><code data-trim contenteditable>
+					<h3>Local changes</h3>
+					<pre class="big"><code data-trim contenteditable>
+$ git diff
+</code></pre>
+					<pre class="big"><code data-trim contenteditable>
+$ git diff --staged
+</code></pre>
+					<h3>Between branches</h3>
+					<pre class="big"><code data-trim contenteditable>
+$ git diff this_branch other_branch
+</code></pre>
+					<pre class="big"><code data-trim contenteditable>
+$ git diff this_branch other_branch -- some_file
+</code></pre>
+					<pre class="big"><code data-trim contenteditable>
+$ git diff this_branch:some_file other_branch:some_file
+</code></pre>
+					<p>... order matters</p>
+				</section>
+
+				<section data-background="#ffffff">
+					<img src="images/gitblame.png" alt="git blame" class="image">
+				</section>
+
+				<section>
+					<h2>Whose fault is it?</h2>
+					<pre class="big"><code data-trim contenteditable>
+$ git blame main.c
+</code></pre>
+					<pre class="medium"><code data-trim contenteditable>
+f10525b3 (Ramiro Berruezo 2013-01-19 12:24:25 -0300 1) #include &lt;stdio.h&gt;
+f10525b3 (Ramiro Berruezo 2013-01-19 12:24:25 -0300 2)
+80c5d84a (Marcia Paez     2013-01-18 14:16:03 -0300 3) int main (void) {
+b63aa62d (Santiago Rojo   2013-01-18 12:20:12 -0300 4)
+f10525b3 (Ramiro Berruezo 2013-01-19 12:24:25 -0300 5)    printf("Hello world!");
+b63aa62d (Santiago Rojo   2013-01-18 12:20:12 -0300 6)    return 0;
+b63aa62d (Santiago Rojo   2013-01-18 12:20:12 -0300 7)
+b63aa62d (Santiago Rojo   2013-01-18 12:20:12 -0300 8) }
+b63aa62d (Santiago Rojo   2013-01-18 12:20:12 -0300 9)
+</code></pre>
+				</section>
+
+				<section>
+					<h1>Configurations</h1>
+				</section>
+
+				<section>
+					<h2>One time configurations</h2>
+					<pre class="big"><code data-trim contenteditable>
 $ git config --global user.name "Santiago Rojo"
 </code></pre>
 					<pre class="big"><code data-trim contenteditable>
@@ -786,10 +772,56 @@ $ git config --global color.ui true
 $ git config --global merge.tool meld
 </code></pre>
 					<pre class="big"><code data-trim contenteditable>
-$ git config --global STORE PASSWORD
+$ git config credential.helper store
 </code></pre>
 					<pre class="big"><code data-trim contenteditable>
-$ git config --global
+$ git config --global --list
+</code></pre>
+				</section>
+
+				<section>
+					<h2>Alias</h2>
+					<pre class="medium"><code data-trim contenteditable>
+$ git config --global alias.lol "log --oneline --graph"
+</code></pre>
+					<pre class="medium"><code data-trim contenteditable>
+$ git lol
+*   9d36fd6 Merge branch 'helloworld'
+|\
+| * 28ebd5c Add hello world message.
+* | 3a76a29 Added .gitignore.
+|/
+* 1e2dde5 First commit.
+</code></pre>
+					<p>... or even more cool.</p>
+					<pre class="medium"><code data-trim contenteditable>
+$ git config --global alias.gol "log --graph --pretty=format:'%Cred%h%Creset - %C(blue)%an%Creset
+%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative"
+</code></pre>
+					<pre class="medium"><code data-trim contenteditable>
+$ git gol
+*   9d36fd6 - Santiago Rojo  (HEAD, master, helloworld) Merge branch 'helloworld' (11 months ago)
+|\
+| * 28ebd5c - Santiago Rojo  (tag: just-branched) Add hello world message. (11 months ago)
+* | 3a76a29 - Santiago Rojo  Added .gitignore. (11 months ago)
+|/
+* 1e2dde5 - Santiago Rojo  First commit. (11 months ago)
+</code></pre>
+				</section>
+
+				<section>
+					<h3>Ignoring things</h3>
+					<ul>
+						<li><code>.gitignore</code></li>
+						<li><code>.git/info/exclude</code></li>
+					</ul>
+					<pre class="big"><code data-trim contenteditable>
+.netbeans
+.DS_Store
+*.o
+*.dll
+!main.dll
+*.class
 </code></pre>
 				</section>
 
@@ -836,14 +868,9 @@ $ sudo apt-get install git gitk
 				</section>
 
 				<section>
-					<section data-background="images/killbill_gogo_1.jpg">
+					<section data-background="images/riddler.jpg">
 						<h1><br><br><br><br></h1>
 						<h1 class="shadow">Questions?</h1>
-					</section>
-
-					<section data-background="images/killbill_gogo_2.jpg">
-						<h1><br><br><br><br></h1>
-						<h1 class="shadow">Are you sure?</h1>
 					</section>
 				</section>
 
