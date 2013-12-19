@@ -693,6 +693,28 @@ $ git diff this_branch:some_file other_branch:some_file
 					<p>... order matters</p>
 				</section>
 
+				<section data-background="#ffffff">
+					<img src="images/gitblame.png" alt="git blame" class="image">
+				</section>
+
+				<section>
+					<h2>Whose fault is it?</h2>
+					<pre class="big"><code data-trim contenteditable>
+$ git blame main.c
+</code></pre>
+					<pre class="medium"><code data-trim contenteditable>
+f10525b3 (Santiago Rojo   2013-01-18 12:24:25 -0300 1) #include &lt;stdio.h&gt;
+f10525b3 (Santiago Rojo   2013-01-18 12:24:25 -0300 2)
+80c5d84a (Marcia Paez     2013-01-18 14:16:03 -0300 3) int main (void) {
+b63aa62d (Santiago Rojo   2013-01-18 12:20:12 -0300 4)
+f10525b3 (Ramiro Berruezo 2013-01-18 12:24:25 -0300 5)    printf("Hello world!");
+b63aa62d (Santiago Rojo   2013-01-18 12:20:12 -0300 6)    return 0;
+b63aa62d (Santiago Rojo   2013-01-18 12:20:12 -0300 7)
+b63aa62d (Santiago Rojo   2013-01-18 12:20:12 -0300 8) }
+b63aa62d (Santiago Rojo   2013-01-18 12:20:12 -0300 9)
+</code></pre>
+				</section>
+
 				<section>hasta acá esta chequeado...</section>
 
 				<section>
